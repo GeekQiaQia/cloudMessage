@@ -1,4 +1,12 @@
 /* pages/participation/participation.wxss */
+@import "../../style/guide.wxss";
+
+.guide .counter {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
 
 .participation{
   width:100%;
@@ -77,4 +85,11 @@ width: 50rpx;
 
 .userinfo-nickname-wrapper {
   flex: 1;
+}
+
+.navigator-hover {
+  color:blue;
+}
+.other-navigator-hover {
+  color:red;
 }

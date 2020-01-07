@@ -98,3 +98,81 @@ page {
   line-height: 36rpx;
   word-break: break-all;
 }
+.participation{
+  width:100%;
+  height: 100%;
+  background: #fff;
+
+ 
+}
+.participation .btn-new-message{
+    width:98%;
+    margin:10rpx; 
+  }
+
+.userinfo, .uploader, .tunnel {
+  margin-top: 40rpx;
+  height: 140rpx;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.userinfo {
+  padding-left: 10rpx;
+}
+.headimg{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  overflow:hidden;
+  background-size:cover;
+  background-color: white;
+}
+.userinfo-avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  overflow:hidden;
+  background-size:cover;
+  background-color: white;
+}
+.userinfo-avatar.button-hover{
+width: 50rpx;
+  height: 50rpx;
+}
+
+.userinfo-avatar[size] {
+  width: 50rpx;
+}
+
+
+.userinfo-avatar:after {
+  border: none;
+}
+
+.userinfo-nickname {
+  font-size: 32rpx;
+  color: #007aff;
+  background-color: white;
+  background-size: cover;
+  text-align: left;
+  padding-left: 0;
+  margin-left: 10px;
+}
+
+.userinfo-nickname::after {
+  border: none;
+}
+
+.userinfo-nickname-wrapper {
+  flex: 1;
+}

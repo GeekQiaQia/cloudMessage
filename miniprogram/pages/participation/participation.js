@@ -8,6 +8,7 @@ Page({
   data: {
     avatarUrl: './user-unlogin.png',
     userInfo: {},
+    pageTitles:[]
   },
 
   onGetUserInfo: function (e) {
@@ -62,7 +63,10 @@ Page({
           })
         }
       }
-    })
+    });
+    this.setData({
+      pageTitles:app.globalData.pageTitles
+    });
   },
 
   /**

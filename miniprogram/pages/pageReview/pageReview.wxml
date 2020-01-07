@@ -1,0 +1,6 @@
+<!--pages/pageReview/pageReview.wxml-->
+  <view>
+  <web-view src="{{pageUrl}}">
+  
+  </web-view>
+    </view>
