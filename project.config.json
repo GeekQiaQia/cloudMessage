@@ -62,6 +62,13 @@
 					"id": -1,
 					"name": "pages/pageReview/pageReview",
 					"pathName": "pages/pageReview/pageReview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/articleCreate/articleCreate",
+					"pathName": "pages/articleCreate/articleCreate",
 					"scene": null
 				}
 			]

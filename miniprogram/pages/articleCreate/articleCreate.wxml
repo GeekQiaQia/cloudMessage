@@ -1,0 +1,33 @@
+<!--pages/articleCreate/articleCreate.wxml-->
+<view>
+	<view class="createContainer">
+		<text> 创建留言信息</text>
+	</view>
+	<view class="section">
+		<view class="messageSetTip">
+			<text>留言设置</text>
+		</view>
+		<view class="messageFrom">
+			<form bindsubmit="formSubmit" bindreset="formReset">
+				<input class="titleInput" auto-focus placeholder="推文标题(必填)" />
+				<view class="textarea-wrp">
+				<textarea bindblur="bindTextAreaBlur" maxlength="200" placeholder="描述说明（选填）" />
+				</view>
+				
+				<view class="section">
+				<view class="messageSetTip">
+					<text>关联设置</text>
+				</view>
+				<view class="textarea-wrp">
+					<textarea bindblur="bindTextAreaBlur"  maxlength="200" placeholder="推文路径（必填）"  />
+				</view>
+				</view>
+				<view class="btn-area">
+					<button class="confirmBtn" formType="submit">Submit</button>
+					<button class="resetBtn" formType="reset">Reset</button>
+				</view>
+			</form>
+</view>
+</view>
+
+</view>

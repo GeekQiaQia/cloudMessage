@@ -35,7 +35,11 @@ Page({
       }
     })
   },
-
+  goCreatePage:function(){
+    wx.navigateTo({
+      url: '../articleCreate/articleCreate',
+    })
+  },
   onGetUserInfo: function(e) {
     if (!this.data.logged && e.detail.userInfo) {
       this.setData({

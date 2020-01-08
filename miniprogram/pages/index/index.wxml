@@ -18,7 +18,7 @@
     <!-- </view> -->
   </view>
   <view>
-  <button  class="btn-new-message" type="primary" > 新建留言区</button>
+  <button  class="btn-new-message" bindtap="goCreatePage" type="primary" > 新建留言区</button>
   </view>
   </view>
 

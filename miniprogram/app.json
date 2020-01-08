@@ -15,6 +15,7 @@
     "pages/im/room/room",
     "pages/participation/participation",
     "pages/pageReview/pageReview",
+    "pages/articleCreate/articleCreate",
     "pages/home/home"
   ],
   "window": {
