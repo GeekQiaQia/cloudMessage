@@ -1,8 +1,8 @@
 <!--pages/participation/participation.wxml-->
 <view>
-    <view  wx:for="{{pageTitles}}" wx:for-index="idx" wx:for-item="item" class="uploader">
+    <view  wx:for="{{pageTitles}}" wx:for-index="idx" wx:for-item="item" wx:key="item._id" class="uploader">
      
-      <navigator url="../pageReview/pageReview?id={{item.id}}" hover-class="navigator-hover">{{item.title}}</navigator>
+      <navigator url="../pageReview/pageReview?id={{item._id}}" hover-class="navigator-hover">{{item.createInfo.titleInput}}</navigator>
     <navigator url="./room/room" open-type="navigate" class="uploader-text">
       <text>进入聊天室</text>
     </navigator>

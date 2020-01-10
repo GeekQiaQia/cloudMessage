@@ -8,14 +8,14 @@
 			
 				<view class="weui-cell__bd">
                    
-							 <input class="weui-input"auto-focus style="padding-left:30rpx;height:3.5rem;" placeholder="推文标题(必填)"/>
+							 <input class="weui-input"auto-focus style="padding-left:30rpx;height:3.5rem;" required name="titleInput" bindblur="handleTitleInputBlur" value="{{titleInput}}" placeholder="推文标题(必填)"/>
 
         </view>
 
 			  <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea"   value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明（选填）" style="height: 3.3em" />
+                    <textarea class="weui-textarea"  name="descriptInput" value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明（选填）" style="height: 3.3em" />
                     <view class="weui-textarea-counter">{{descriptInputLen}}/200</view>
                 </view>
             </view>
@@ -27,7 +27,7 @@
 				  <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea"    placeholder="推文路径（必填）" style="height: 3.3em" />
+                    <textarea class="weui-textarea"   name="articleSrc" bindblur="handleArticleSrcBlur" value="{{articleSrc}}" placeholder="推文路径（必填）" style="height: 3.3em" />
                   
                 </view>
             </view>
@@ -35,10 +35,14 @@
 				</view>
 				<view class="btn-area">
 					<button class="resetBtn" formType="reset">重置</button>
-					<button class="confirmBtn" formType="submit">创建</button>
+					<button class=" confirmBtn "  disabled="{{loading}}" formType="submit">
+					  <i wx:if="{{loading}}" class="loading"></i> {{creating}}</button>
 				</view>
 			</form>
 </view>
+
+ 
+		<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 </view>
    <view class="weui-footer weui-footer_fixed-bottom">
          

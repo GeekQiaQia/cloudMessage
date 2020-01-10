@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-dialog":"../../miniprogram_npm/weui-miniprogram/dialog/dialog",
+    "mp-toptips":"../../miniprogram_npm/weui-miniprogram/toptips/toptips",
+    "mp-msg": "../../miniprogram_npm/weui-miniprogram/msg/msg",
+    "mp-loading":"../../miniprogram_npm/weui-miniprogram/loading/loading"
+  },
   "navigationBarTitleText": "创建留言"
 }

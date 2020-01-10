@@ -16,6 +16,7 @@
     "pages/participation/participation",
     "pages/pageReview/pageReview",
     "pages/articleCreate/articleCreate",
+    "pages/createSuccess/createSuccess",
     "pages/home/home"
   ],
   "window": {

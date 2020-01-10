@@ -7,22 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageUrl: "",
+    articleSrc: "",
     pageId:"",
     pageTitles: []
   },
   toGetCurrentPage:function(){
     let that=this;
     let pageTitles=this.data.pageTitles
-    console.log(this.data.pageTitles,this.data.pageUrl);
+    console.log(this.data.pageTitles,this.data.articleSrc);
     let result =pageTitles.filter((item)=>{
-        return item.id===that.data.pageId
+        return item._id===that.data.pageId
     });
     console.log(result);
     this.setData({
-      ...this.data,
-      pageUrl:result[0].pageUrl
+    
+      articleSrc:result[0].createInfo.articleSrc
     });
+    console.log(this.data.articleSrc);
   },
 
   /**
@@ -31,7 +32,7 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData.pageTitles);
     this.setData({
-      ...this.data,
+     
       pageId: options.id,
       pageTitles: app.globalData.pageTitles
     })

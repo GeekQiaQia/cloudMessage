@@ -14,14 +14,16 @@ App({
         traceUser: true,
       })
     }
+      
+
     // 在全局去请求配置的文章链接和信息；
     this.globalData = {
       pageTitles: [
-        { id:"1",title: "寻匠心 | 朋友圈消失2年，他带回34省市简称字体，《人民日报》点赞，看看你的家乡有多美！",
-         pageUrl: "https://mp.weixin.qq.com/s/GRfIFPCRkyc5K_izevK4tw" },
+        { _id:"1",titleInput: "寻匠心 | 朋友圈消失2年，他带回34省市简称字体，《人民日报》点赞，看看你的家乡有多美！",
+        articleSrc: "https://mp.weixin.qq.com/s/GRfIFPCRkyc5K_izevK4tw" },
 
-        { id:"2",title: "在人间 | 93岁奶奶恶搞27岁孙子，一夜爆红，狂吸1300万人围观：这个奶奶真酷",
-          pageUrl: "https://mp.weixin.qq.com/s/nLmBquPTjIBy1hQGHw7CfA"  }]
+        { _id:"2",titleInput: "在人间 | 93岁奶奶恶搞27岁孙子，一夜爆红，狂吸1300万人围观：这个奶奶真酷",
+        articleSrc: "https://mp.weixin.qq.com/s/nLmBquPTjIBy1hQGHw7CfA"  }]
     }
   }
 })

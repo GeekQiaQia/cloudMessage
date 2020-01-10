@@ -7,6 +7,7 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
+    openid:"",
     requestResult: ''
   },
 
@@ -34,7 +35,39 @@ Page({
         }
       }
     })
+    if (app.globalData.openid) {
+      this.setData({
+        openid: app.globalData.openid
+      })
+    }
+    this.onQuery();
   },
+    // 查询数据库数据；
+
+    onQuery: function() {
+      const db = wx.cloud.database()
+      // 查询当前用户所有的 pageTitles
+      db.collection('pageTitles').where({
+        _openid: this.data.openid
+      }).get({
+        success: res => {
+          // this.setData({
+          //   queryResult: JSON.stringify(res.data, null, 2)
+          // })
+          // 返回的res.data 数组类型；
+          console.log('[数据库] [查询记录] 成功: ', res)
+          app.globalData.pageTitles=res.data;
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '查询记录失败'
+          })
+          console.error('[数据库] [查询记录] 失败：', err)
+        }
+      })
+    },
+  
   goCreatePage:function(){
     wx.navigateTo({
       url: '../articleCreate/articleCreate',
