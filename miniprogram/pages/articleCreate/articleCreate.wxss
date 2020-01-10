@@ -1,24 +1,26 @@
 /* pages/articleCreate/articleCreate.wxss */
-.createContainer{
-  background-color: rgb(230, 224, 224);
-  text-align:center;
-  width:100%;
-  height: 100rpx;
-  line-height: 100rpx;
-  vertical-align: middle;
-  border-bottom:1px solid rgb(7, 7, 7);
+.page-article-create{
+  background-color: rgb(242, 242, 242);
+ 
 }
 .messageSetTip{
   text-align: left;
   width:100%;
-  height:50rpx;
-  line-height:50rpx;
+  height:100rpx;
+  margin-left: 20rpx;
+  line-height:100rpx;
   vertical-align: bottom;
   background-color: rgb(230, 224, 224);
 
 }
 .section{
   background-color: rgb(230, 224, 224);
+}
+.section .customer-cell{
+  height:80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .messageFrom{
   background-color: #fff;
@@ -40,15 +42,18 @@ textarea {
   padding: 0 25rpx;
   background-color: #fff;
 }
+.btn-area{
+  background-color: rgb(230, 224, 224);
+}
 .resetBtn{
-	 background-color: #d8d6d6;
+	 background-color: white;
    margin:10rpx; 
-   color:white;
+   color:rgb(205, 205, 205);
 }
 .confirmBtn{
   margin:10rpx;
   color:white;
-  background-color:rgb(91, 228, 91);
+  background-color:rgb(7, 193, 96);
 }
 .btn-area{
 	display: flex;

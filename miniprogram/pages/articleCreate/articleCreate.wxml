@@ -1,33 +1,49 @@
 <!--pages/articleCreate/articleCreate.wxml-->
-<view>
-	<view class="createContainer">
-		<text> 创建留言信息</text>
-	</view>
+<view class="page-article-create">
+
 	<view class="section">
-		<view class="messageSetTip">
-			<text>留言设置</text>
-		</view>
+		 <view class="weui-cells__title customer-cell" >留言设置</view>
 		<view class="messageFrom">
 			<form bindsubmit="formSubmit" bindreset="formReset">
-				<input class="titleInput" auto-focus placeholder="推文标题(必填)" />
-				<view class="textarea-wrp">
-				<textarea bindblur="bindTextAreaBlur" maxlength="200" placeholder="描述说明（选填）" />
-				</view>
-				
+			
+				<view class="weui-cell__bd">
+                   
+							 <input class="weui-input"auto-focus style="padding-left:30rpx;height:3.5rem;" placeholder="推文标题(必填)"/>
+
+        </view>
+
+			  <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea"   value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明（选填）" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">{{descriptInputLen}}/200</view>
+                </view>
+            </view>
+        </view>
+
 				<view class="section">
-				<view class="messageSetTip">
-					<text>关联设置</text>
-				</view>
-				<view class="textarea-wrp">
-					<textarea bindblur="bindTextAreaBlur"  maxlength="200" placeholder="推文路径（必填）"  />
-				</view>
+				<view class="weui-cells__title customer-cell">关联设置</view>
+			
+				  <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea"    placeholder="推文路径（必填）" style="height: 3.3em" />
+                  
+                </view>
+            </view>
+        </view>
 				</view>
 				<view class="btn-area">
-					<button class="confirmBtn" formType="submit">Submit</button>
-					<button class="resetBtn" formType="reset">Reset</button>
+					<button class="resetBtn" formType="reset">重置</button>
+					<button class="confirmBtn" formType="submit">创建</button>
 				</view>
 			</form>
 </view>
 </view>
+   <view class="weui-footer weui-footer_fixed-bottom">
+         
+      <view class="weui-footer__text">Copyright © 2019-2020 cloudsaying.io</view>
+    
+		</view>
 
 </view>

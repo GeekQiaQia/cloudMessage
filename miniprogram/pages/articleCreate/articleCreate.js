@@ -5,7 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+      descriptInput:"",
+      descriptInputLen:0
 
+
+  },
+  handleTextInput(e){
+  
+    let len=e.detail.value.length; 
+    this.setData({
+      descriptInputLen:len
+    });
+    
   },
 
   /**
