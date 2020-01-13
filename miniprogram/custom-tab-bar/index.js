@@ -21,6 +21,7 @@ Page({
       selected: data.index
     })
   },
+  
 
   onLoad: function() {
     if (!wx.cloud) {
