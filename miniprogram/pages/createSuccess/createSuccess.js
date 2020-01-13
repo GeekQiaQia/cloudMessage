@@ -8,6 +8,21 @@ Page({
 
   },
 
+  handleBackIndex(){
+    console.log("handleBackIndex");
+    // 跳转到switchTab;并重新加载
+    wx.switchTab({
+      url: '../index/index',
+      success: function () {
+        var page = getCurrentPages().pop();
+        if (page == undefined || page == null) {
+          return
+        }
+        page.onLoad();
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

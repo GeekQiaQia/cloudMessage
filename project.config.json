@@ -6,10 +6,10 @@
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"nodeModules": true
+		"preloadBackgroundData": false
 	},
 	"appid": "wx3d242bf00c0bc844",
 	"projectname": "cloudMessage",
@@ -83,6 +83,14 @@
 					"id": -1,
 					"name": "pages/articleCreate/articleCreate",
 					"pathName": "pages/articleCreate/articleCreate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/createSuccess/createSuccess",
+					"pathName": "pages/createSuccess/createSuccess",
+					"query": "",
 					"scene": null
 				}
 			]

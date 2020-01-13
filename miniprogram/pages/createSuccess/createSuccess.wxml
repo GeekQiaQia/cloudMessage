@@ -11,7 +11,7 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary">返回创建列表</button>
+                <button class="weui-btn" type="primary" bindtap="handleBackIndex">返回创建列表</button>
             </view>
         </view>
      

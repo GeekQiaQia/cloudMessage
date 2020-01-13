@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+
+<view class="tab-bar">
+
+  <view class="cu-bar tabbar margin-bottom-xl bg-white" style="width:100%;bottom: -30rpx;">
+    <view class="action text-green">
+      <view class="cuIcon-homefill" style="color:#3fb34f;"></view> 
+      <view style="color:green">首页</view>
+    </view>
+    <view class="action text-gray">
+      <view class="cuIcon-similar"></view> 分类
+    </view>
+    <view class="action text-gray add-action">
+      <button class="cu-btn cuIcon-add bg-green shadow" style="background-color: #3fb34f;color: white;"></button>
+      发布
+    </view>
+    <view class="action text-gray">
+      <view class="cuIcon-cart">
+        <view class="cu-tag badge">99</view>
+      </view>
+      购物车
+    </view>
+    <view class="action text-gray">
+      <view class="cuIcon-my">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
+    </view>
+  </view>
+</view>
+
+</view>
