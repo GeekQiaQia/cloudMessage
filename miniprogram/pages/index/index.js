@@ -18,7 +18,17 @@ Page({
       })
       return
     }
+    wx.setNavigationBarTitle({
 
+      title: "首页测试",
+      success(res){
+          console.log(res);
+      },
+      fail(err){
+        console.log(err);
+      }
+
+    });
     // 获取用户信息
     wx.getSetting({
       success: res => {

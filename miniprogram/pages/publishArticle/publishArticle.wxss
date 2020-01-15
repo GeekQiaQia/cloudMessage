@@ -1,0 +1,24 @@
+/* pages/publishArticle/publishArticle.wxss */
+.btn-new-message{
+    width:98%;
+    margin:10rpx; 
+  }
+
+.participation{
+  width:100%;
+  height: 100%;
+  background: #fff;
+ 
+}
+.userinfo {
+  padding-left: 10rpx;
+}
+.headimg{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  overflow:hidden;
+  background-size:cover;
+  background-color: white;
+}

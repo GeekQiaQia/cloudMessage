@@ -1,0 +1,16 @@
+<!--pages/publishArticle/publishArticle.wxml-->
+<view>
+  <view class="participation">
+    <view class="userinfo">
+      <open-data type="userAvatarUrl" class='headimg' lang="en"></open-data>
+      <text>{{userInfo.nickName}}</text>
+    
+    </view>
+  </view>
+    
+    <view>
+    <!-- <button  class="btn-new-message" bindtap="goCreatePage" type="primary" > 新建留言区</button> -->
+    </view>
+  
+</view>
+

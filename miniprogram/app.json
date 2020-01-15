@@ -14,6 +14,7 @@
     "pages/im/im",
     "pages/im/room/room",
     "pages/participation/participation",
+    "pages/publishArticle/publishArticle",
     "pages/pageReview/pageReview",
     "pages/articleCreate/articleCreate",
     "pages/createSuccess/createSuccess",
@@ -23,15 +24,15 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "云开发 CloudSaying",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "default"
   },
     "usingComponents": {
       "cu-custom": "/colorui/components/cu-custom"
     },
   "tabBar": {
-    "custom": true,
+        "custom": true,
         "color": "#a9b7b7",
         "selectedColor": "#11cd6e",
         "borderStyle": "black",
@@ -45,6 +46,10 @@
         {
           "pagePath": "pages/participation/participation",
           "text": "我的参与"
+        },
+        {
+          "pagePath": "pages/publishArticle/publishArticle"
+          
         }
     ]  
 

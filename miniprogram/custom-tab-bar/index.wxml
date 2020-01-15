@@ -5,24 +5,24 @@
 <view class="tab-bar">
 
   <view class="cu-bar tabbar margin-bottom-xl bg-white" style="width:100%;bottom: -30rpx;">
-    <view class="action text-green">
+    <view class="action text-green" data-index="0" bindtap="handleSquare">
       <view class="cuIcon-homefill" style="color:#3fb34f;"></view> 
-      <view style="color:green">首页</view>
+      <view style="color:green">广场</view>
     </view>
-    <view class="action text-gray">
+    <view class="action text-gray" data-index="1">
       <view class="cuIcon-similar"></view> 分类
     </view>
     <view class="action text-gray add-action">
-      <button class="cu-btn cuIcon-add bg-green shadow" style="background-color: #3fb34f;color: white;"></button>
+      <button class="cu-btn cuIcon-add bg-green shadow" style="background-color: #3fb34f;color: white;" bindtap="handlePublish" data-index="2"></button>
       发布
     </view>
-    <view class="action text-gray">
+    <view class="action text-gray" data-index="4" bindtap="handleParticipate">
       <view class="cuIcon-cart">
         <view class="cu-tag badge">99</view>
       </view>
-      购物车
+      参与
     </view>
-    <view class="action text-gray">
+    <view class="action text-gray" data-index="4">
       <view class="cuIcon-my">
         <view class="cu-tag badge"></view>
       </view>
