@@ -9,6 +9,7 @@ Page({
   data: {
     avatarUrl: './user-unlogin.png',
     userInfo: {},
+    isCard:true,
     pageTitles:[]
   },
 
@@ -21,6 +22,12 @@ Page({
         userInfo: e.detail.userInfo
       })
     }
+  },
+  isCard(e) {
+    console.log(e);
+    this.setData({
+      isCard: e.detail.value
+    })
   },
   onGetOpenid: function () {
     // 调用云函数

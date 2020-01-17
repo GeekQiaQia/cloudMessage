@@ -2,7 +2,15 @@
 <view class="participation">
 
   <view class="articleList">
-    <view class="cu-card article {{isCard?'no-card':''}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="item._id" bindtap="handleArticleTap">
+    <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
+      <view class='action'>
+        <text class='cuIcon-titles text-orange '></text> 互动文章
+      </view>
+      <view class='action'>
+        <switch class='sm' checked='{{isCard}}' bindchange='isCard'></switch>
+      </view>
+    </view>
+    <view class="cu-card article {{isCard?'':'no-card'}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="item._id" bindtap="handleArticleTap">
         <view class="cu-item shadow">
           <view class="title">
             <view class="text-cut">{{item.createInfo.titleInput}}</view>
