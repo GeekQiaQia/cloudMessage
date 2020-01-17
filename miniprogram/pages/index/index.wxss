@@ -1,4 +1,11 @@
 /**index.wxss**/
+@import "../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+
 
 page {
   background: #f6f6f6;
@@ -7,7 +14,12 @@ page {
   justify-content: flex-start;
 }
 
-
+	.tower-swiper .tower-item {
+		transform: scale(calc(0.5 + var(--index) / 10));
+		margin-left: calc(var(--left) * 100rpx - 150rpx);
+		z-index: var(--index);
+	}
+  
 .uploader, .tunnel {
   height: auto;
   padding: 0 0 0 40rpx;

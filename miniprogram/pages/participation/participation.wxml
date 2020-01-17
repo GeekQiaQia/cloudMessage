@@ -1,11 +1,25 @@
 <!--pages/participation/participation.wxml-->
-<view>
-    <view  wx:for="{{pageTitles}}" wx:for-index="idx" wx:for-item="item" wx:key="item._id" class="uploader">
-     
-      <navigator url="../pageReview/pageReview?id={{item._id}}" hover-class="navigator-hover">{{item.createInfo.titleInput}}</navigator>
-    <navigator url="./room/room" open-type="navigate" class="uploader-text">
-      <text>进入聊天室</text>
-    </navigator>
-  </view>
+<view class="participation">
 
+  <view class="articleList">
+    <view class="cu-card article {{isCard?'no-card':''}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="item._id" bindtap="handleArticleTap">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">{{item.createInfo.titleInput}}</view>
+          </view>
+          <view class="content">
+            <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> {{item.createInfo.descriptInput}}</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">正义天使</view>
+                <view class="cu-tag bg-green light sm round">史诗</view>
+              </view>
+
+            </view>
+            
+          </view>
+        </view>
+      </view>
+  </view>
 </view>

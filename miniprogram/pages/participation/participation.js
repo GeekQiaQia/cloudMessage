@@ -1,4 +1,5 @@
 // pages/participation/participation.js
+// ../room/room   进入聊天室
 const app = getApp()
 Page({
 
@@ -38,6 +39,17 @@ Page({
         wx.navigateTo({
           url: '../deployFunctions/deployFunctions',
         })
+      }
+    })
+  },
+  handleArticleTap(e){
+    console.log(e);
+    let id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../pageReview/pageReview?id=' + id,
+ 
+      success: function (res) {
+       console.log(res);
       }
     })
   },
