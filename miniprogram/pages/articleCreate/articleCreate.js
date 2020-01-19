@@ -7,6 +7,7 @@ Page({
    */
   data: {
     imgList: [],
+    imagePath:"",
     titleInput:"", 
     descriptInput:"",
     articleSrc:"", 
@@ -22,7 +23,7 @@ Page({
 
   },
   formSubmit(e){
-  
+      console.log(e);
    
     // 如果必填项为空，则提示；
     if(e.detail.value.titleInput===""&& e.detail.value.articleSrc===""){
@@ -53,7 +54,9 @@ Page({
       const db = wx.cloud.database()
       db.collection('pageTitles').add({
         data: {
-          createInfo
+          createInfo: {
+            ...createInfo,
+            imagePath: this.data.imagePath}
         },
         success: res => {
           // 在返回结果中会包含新创建的记录的 _id
@@ -92,22 +95,110 @@ Page({
       })
     }
   },
+  // 上传图片
+  doUpload: function () {
+    // 选择图片
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+
+        wx.showLoading({
+          title: '上传中',
+        })
+
+        const filePath = res.tempFilePaths[0]
+
+        // 上传图片
+        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
+        wx.cloud.uploadFile({
+          cloudPath,
+          filePath,
+          success: res => {
+            console.log('[上传文件] 成功：', res)
+
+            app.globalData.fileID = res.fileID
+            app.globalData.cloudPath = cloudPath
+            app.globalData.imagePath = filePath
+
+            wx.navigateTo({
+              url: '../storageConsole/storageConsole'
+            })
+          },
+          fail: e => {
+            console.error('[上传文件] 失败：', e)
+            wx.showToast({
+              icon: 'none',
+              title: '上传失败',
+            })
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
+
+      },
+      fail: e => {
+        console.error(e)
+      }
+    })
+  },
+
 
   ChooseImage() {
     wx.chooseImage({
-      count: 4, //默认9
+      count: 1, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
+        console.log(res);
+        wx.showLoading({
+          title: '上传中',
+        })
+
+        const filePath = res.tempFilePaths[0]
+       
+        // 上传图片
+        const cloudPath = filePath.split(".")[2] + filePath.match(/\.[^.]+?$/)[0]
+        console.log("cloudPath is " + cloudPath);
+        wx.cloud.uploadFile({
+          cloudPath,
+          filePath,
+          success: res => {
+            console.log('[上传文件] 成功：', res)
+
+            // app.globalData.fileID = res.fileID
+            // app.globalData.cloudPath = cloudPath
+            // app.globalData.imagePath = filePath
+            console.log(res.fileID, filePath, cloudPath);
+            // wx.navigateTo({
+            //   url: '../storageConsole/storageConsole'
+            // })
+            this.setData({
+              imagePath:filePath
+            })
+            if (this.data.imgList.length == 0) {
+              let tempList = [];
+              tempList.push(filePath);
+              this.setData({
+                imgList: tempList
+              })
+            } 
+          },
+          fail: e => {
+            console.error('[上传文件] 失败：', e)
+            wx.showToast({
+              icon: 'none',
+              title: '上传失败',
+            })
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
+
+     
       }
     });
   },

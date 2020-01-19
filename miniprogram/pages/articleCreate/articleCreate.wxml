@@ -24,8 +24,8 @@
           <view class="weui-cells weui-cells_after-title" style="font-size: 28rpx">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea"  name="descriptInput" value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明：有吸引力的描述更能吸引阅读哦（必填）" style="height: 3.3em" />
-                    <view class="weui-textarea-counter">{{descriptInputLen}}/200</view>
+                    <textarea  class="weui-textarea"  name="descriptInput" value="{{descriptInput}}" maxlength="100" bindinput="handleTextInput" placeholder="描述说明：有吸引力的描述更能吸引阅读哦（必填）" style="height: 190rpx" />
+                    <view class="weui-textarea-counter">{{descriptInputLen}}/100</view>
                 </view>
             </view>
           </view>
@@ -35,12 +35,12 @@
         <!--图片上传-->
         <view class="upload-img">
 
-          <view class="cu-bar bg-white margin-top">
+          <view class="cu-bar bg-white ">
               <view class="action">
-                图片上传
+                封面图片上传
               </view>
               <view class="action">
-                {{imgList.length}}/4
+                {{imgList.length}}/1
               </view>
               
           </view>
@@ -53,13 +53,13 @@
                     <text class="cuIcon-close"></text>
                   </view>
                 </view>
-                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
                   <text class="cuIcon-cameraadd"></text>
                 </view>
               </view>
             </view>
           </view>
-          
+
         <!--推文路径-->
 			<view class="section">
           <view class="cu-bar bg-white">
@@ -69,7 +69,7 @@
             </view>
           </view>
           <view class="cu-form-group margin-top">
-                <textarea maxlength="-1" name="articleSrc" bindblur="handleArticleSrcBlur" value="{{articleSrc}}"disabled="{{modalName!=null}}"  placeholder="推文路径（必填）"></textarea>
+                <textarea maxlength="-1" name="articleSrc" bindblur="handleArticleSrcBlur" value="{{articleSrc}}"disabled="{{modalName!=null}}"  placeholder="推文路径：已经发布的文章链接哦（必填）"></textarea>
           </view>
 	
 			</view>

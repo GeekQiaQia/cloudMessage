@@ -10,13 +10,15 @@
         <switch class='sm' checked='{{isCard}}' bindchange='isCard'></switch>
       </view>
     </view>
-    <view class="cu-card article {{isCard?'':'no-card'}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="item._id" bindtap="handleArticleTap">
+    <view class="cu-card article {{isCard?'':'no-card'}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="_id" bindtap="handleArticleTap">
         <view class="cu-item shadow">
           <view class="title">
             <view class="text-cut">{{item.createInfo.titleInput}}</view>
           </view>
           <view class="content">
-            <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+
+                        <image wx:if="{{item.createInfo.imagePath}}" src="{{item.createInfo.imagePath}}" mode="aspectFill"></image>
+                                    <image wx:else src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
             <view class="desc">
               <view class="text-content"> {{item.createInfo.descriptInput}}</view>
               <view>
