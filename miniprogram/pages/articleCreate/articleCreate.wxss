@@ -1,7 +1,11 @@
 /* pages/articleCreate/articleCreate.wxss */
 .page-article-create{
-  background-color: rgb(242, 242, 242);
+  background-color: #f2f2f2
  
+}
+.upload-img{
+  width:100%;
+  border-top:1rpx solid rgba(0,0,0,.1);
 }
 .messageSetTip{
   text-align: left;
@@ -10,11 +14,11 @@
   margin-left: 20rpx;
   line-height:100rpx;
   vertical-align: bottom;
-  background-color: rgb(230, 224, 224);
+  background-color: #f2f2f2
 
 }
 .section{
-  background-color: rgb(230, 224, 224);
+ background-color: #f2f2f2;
 }
 .section .customer-cell{
   height:80rpx;
@@ -43,7 +47,7 @@ textarea {
   background-color: #fff;
 }
 .btn-area{
-  background-color: rgb(230, 224, 224);
+  background-color: #f2f2f2
 }
 .resetBtn{
 	 background-color: white;

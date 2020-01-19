@@ -1,38 +1,80 @@
 <!--pages/articleCreate/articleCreate.wxml-->
 <view class="page-article-create">
 
-	<view class="section">
-		 <view class="weui-cells__title customer-cell" >留言设置</view>
-		<view class="messageFrom">
+	<view class="article-info">
+		 <!--title-->
+     <view class="cu-bar bg-white">
+        <view class="action">
+          <text class="cuIcon-title text-green"></text>
+          <text>留言文章设置</text>
+        </view>
+      </view>
+      <!--留言设置表单-->
+		<view class="messageFrom margin-top">
 			<form bindsubmit="formSubmit" bindreset="formReset">
 			
-				<view class="weui-cell__bd">
+              <view class="weui-cell__bd" style="font-size: 28rpx">
                    
 							 <input class="weui-input"auto-focus style="padding-left:30rpx;height:3.5rem;" required name="titleInput" bindblur="handleTitleInputBlur" value="{{titleInput}}" placeholder="推文标题(必填)"/>
 
         </view>
-
-			  <view class="weui-cells weui-cells_after-title">
+        
+        <!--描述说明-->
+        <view class="section">
+          <view class="weui-cells weui-cells_after-title" style="font-size: 28rpx">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea"  name="descriptInput" value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明（选填）" style="height: 3.3em" />
+                    <textarea class="weui-textarea"  name="descriptInput" value="{{descriptInput}}" maxlength="200" bindinput="handleTextInput" placeholder="描述说明：有吸引力的描述更能吸引阅读哦（必填）" style="height: 3.3em" />
                     <view class="weui-textarea-counter">{{descriptInputLen}}/200</view>
                 </view>
             </view>
+          </view>
         </view>
 
-				<view class="section">
-				<view class="weui-cells__title customer-cell">关联设置</view>
-			
-				  <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-                <view class="weui-cell__bd">
-                    <textarea class="weui-textarea"   name="articleSrc" bindblur="handleArticleSrcBlur" value="{{articleSrc}}" placeholder="推文路径（必填）" style="height: 3.3em" />
-                  
+        
+        <!--图片上传-->
+        <view class="upload-img">
+
+          <view class="cu-bar bg-white margin-top">
+              <view class="action">
+                图片上传
+              </view>
+              <view class="action">
+                {{imgList.length}}/4
+              </view>
+              
+          </view>
+
+          <view class="cu-form-group">
+              <view class="grid col-4 grid-square flex-sub">
+                <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                  <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                  <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                  </view>
                 </view>
+                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                  <text class="cuIcon-cameraadd"></text>
+                </view>
+              </view>
             </view>
-        </view>
-				</view>
+          </view>
+          
+        <!--推文路径-->
+			<view class="section">
+          <view class="cu-bar bg-white">
+            <view class="action">
+                <text class="cuIcon-title text-green"></text>
+                <text>路径关联设置</text>
+            </view>
+          </view>
+          <view class="cu-form-group margin-top">
+                <textarea maxlength="-1" name="articleSrc" bindblur="handleArticleSrcBlur" value="{{articleSrc}}"disabled="{{modalName!=null}}"  placeholder="推文路径（必填）"></textarea>
+          </view>
+	
+			</view>
+
+
 				<view class="btn-area">
 					<button class="resetBtn" formType="reset">重置</button>
 					<button class=" confirmBtn "  disabled="{{loading}}" formType="submit">
