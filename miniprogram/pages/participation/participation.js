@@ -60,6 +60,43 @@ Page({
       }
     })
   },
+  /**
+   * @description:合并两个数组且去重；
+   * 
+  */
+  uniqueArr:function(arr1,arr2){
+    arr1.push(...arr2);
+    return [...new Set(arr1)]
+  },
+  // 查询数据库数据；
+
+  onQuery: async function () {
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 pageTitles
+    await db.collection('pageTitles').where({
+      _openid: this.data.openid
+    }).get({
+      success: res => {
+        // this.setData({
+        //   queryResult: JSON.stringify(res.data, null, 2)
+        // })
+        // 返回的res.data 数组类型；
+        console.log('[数据库] [查询记录] 成功: ', res)
+        app.globalData.pageTitles=this.uniqueArr(app.globalData.pageTitles, res.data);
+        
+        this.setData({
+          pageTitles: res.data
+        });
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+        console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -83,9 +120,8 @@ Page({
         }
       }
     });
-    this.setData({
-      pageTitles:app.globalData.pageTitles
-    });
+    this.onQuery();
+    
   },
 
   /**
@@ -120,7 +156,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onQuery();
   },
 
   /**

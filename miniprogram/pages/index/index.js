@@ -8,6 +8,8 @@ Page({
     logged: false,
     takeSession: false,
     openid:"",
+    isCard: true,
+    pageTitles: [],
     requestResult: '',
     cardCur: 0,
     DotStyle:"",
@@ -76,13 +78,21 @@ Page({
     // 初始化towerSwiper 传已有的数组名即可
     this.onQuery();
   },
+  /**
+    * @description:合并两个数组且去重；
+    * 
+  */
+  uniqueArr: function (arr1, arr2) {
+    arr1.push(...arr2);
+    return [...new Set(arr1)]
+  },
   // 查询数据库数据；
 
   onQuery: function () {
     const db = wx.cloud.database()
     // 查询当前用户所有的 pageTitles
     db.collection('pageTitles').where({
-      _openid: this.data.openid
+      
     }).get({
       success: res => {
         // this.setData({
@@ -90,7 +100,12 @@ Page({
         // })
         // 返回的res.data 数组类型；
         console.log('[数据库] [查询记录] 成功: ', res)
-        app.globalData.pageTitles = res.data;
+        // app.globalData.pageTitles = res.data;
+        app.globalData.pageTitles = this.uniqueArr(app.globalData.pageTitles, res.data);
+        this.setData({
+          pageTitles:res.data
+        });
+        
       },
       fail: err => {
         wx.showToast({
@@ -101,7 +116,17 @@ Page({
       }
     })
   },
+  handleArticleTap(e) {
+    console.log(e);
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../pageReview/pageReview?id=' + id,
 
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
 
   DotStyle(e) {
     this.setData({
