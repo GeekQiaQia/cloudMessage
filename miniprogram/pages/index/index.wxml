@@ -27,7 +27,9 @@
       <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit" class="gif-white response" style="height:240rpx"></image>
     </view>
   </view> -->
-    <scroll-view scroll-y="true" style="height: 630rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
+  
+    <scroll-view scroll-y="true" style='height: {{scrollHeight + "rpx"}}' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
        
        
       <view class="cu-card article {{isCard?'':'no-card'}}"  data-id="{{item._id}}" wx:for="{{pageTitles}}" wx:for-index="id" wx:for-item="item" wx:key="_id" bindtap="handleArticleTap">
@@ -56,10 +58,10 @@
 </view>
 
 
-  <!-- <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">导航栏</view>
-</cu-custom> -->
+
+
+
+
 
   <!-- 上传图片
   <view class="uploader">

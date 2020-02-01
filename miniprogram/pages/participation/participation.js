@@ -10,7 +10,26 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     isCard:true,
+    scrollHeight: "",
     pageTitles:[]
+  },
+  /**
+   *动态计算scrollview 高度；
+  *  
+  * 
+  */
+  computeScrollViewHeight: function () {
+
+    let width = wx.getSystemInfoSync().windowWidth;
+    let height = wx.getSystemInfoSync().windowHeight;
+    // rpx与px 之间的换算：750rpx /windowWidth=屏幕高度rpx/windowHeight;
+    let screeHeight = 750 * height / width;
+    // 计算出其余view的高度； titleHeight=130rpx;  tabBarHeight=139rpx
+    let scroll_height = screeHeight - 130- 139;
+
+    this.setData({
+      scrollHeight: scroll_height
+    });
   },
 
   onGetUserInfo: function (e) {
@@ -121,6 +140,7 @@ Page({
       }
     });
     this.onQuery();
+    this.computeScrollViewHeight();
     
   },
 

@@ -9,6 +9,7 @@ Page({
     takeSession: false,
     openid:"",
     isCard: true,
+    scrollHeight:"",
     pageTitles: [],
     requestResult: '',
     cardCur: 0,
@@ -77,7 +78,27 @@ Page({
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
     this.onQuery();
+    this.computeScrollViewHeight();
   },
+  /**
+   *动态计算scrollview 高度；
+   *  
+   * 
+  */
+  computeScrollViewHeight:function(){
+
+    let width=wx.getSystemInfoSync().windowWidth;
+    let height=wx.getSystemInfoSync().windowHeight;
+    // rpx与px 之间的换算：750rpx /windowWidth=屏幕高度rpx/windowHeight;
+    let screeHeight=750*height/width;
+    // 设置出其余view的高度； swiperHeight=420rpx;tabBarHeight=139rpx
+    let scroll_height=screeHeight-420-139;
+
+    this.setData({
+      scrollHeight:scroll_height
+    });
+  },
+
   /**
     * @description:合并两个数组且去重；
     * 
